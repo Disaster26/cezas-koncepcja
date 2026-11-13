@@ -164,7 +164,7 @@ p{margin:0}
 /* dostawa */
 .dostawa{display:grid;gap:32px;grid-template-columns:1fr}
 @media (min-width:820px){.dostawa{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,64px)}}
-.dostawa svg{width:64px;height:30px;color:var(--niebieski);margin-bottom:14px}
+.dostawa svg{width:84px;height:22px;color:var(--niebieski);margin-bottom:14px}
 .dostawa p{margin-top:10px;color:var(--tekst2)}
 .dostawa-uwaga{margin-top:clamp(28px,4vw,44px);padding-top:22px;border-top:1px solid var(--linia);color:var(--tekst2);max-width:70ch}
 
@@ -266,7 +266,7 @@ form .btn{margin-top:20px;width:100%}
   <div class="wrap">
     <a class="logo" href="#" aria-label="CEZAS Łódź - strona główna"><svg role="img" aria-label="CEZAS Łódź"><use href="#logo"/></svg></a>
     <nav class="menu" aria-label="Menu główne">
-      <a href="#meble" class="on">Meble</a>
+      <a href="#meble">Meble</a>
       <a href="#sale">Sale i pracownie</a>
       <a href="#druki">Druki</a>
       <a href="#o-firmie">O firmie</a>
@@ -279,7 +279,7 @@ form .btn{margin-top:20px;width:100%}
   </div>
 </header>
 <nav class="mmenu" id="mmenu" aria-label="Menu mobilne">
-  <a class="l on" href="#meble">Meble, tablice, druki</a>
+  <a class="l" href="#meble">Meble, tablice, druki</a>
   <a class="l" href="#sale">Sale i pracownie</a>
   <a class="l" href="#druki">Druki szkolne</a>
   <a class="l" href="#o-firmie">O firmie</a>
@@ -431,9 +431,9 @@ form .btn{margin-top:20px;width:100%}
       <h2 id="h-dostawa">Dostawa do placówki</h2>
     </div>
     <div class="dostawa">
-      <div><svg viewBox="0 0 64 30" aria-hidden="true"><circle cx="32" cy="27" r="3" fill="currentColor"/><path d="M14 27a18 18 0 0 1 36 0" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Łódź i okolice</h3><p>Na terenie Łodzi i bliskiej okolicy staramy się dostarczać wszystko bezpłatnie.</p></div>
-      <div><svg viewBox="0 0 64 30" aria-hidden="true"><circle cx="32" cy="27" r="3" fill="currentColor"/><path d="M14 27a18 18 0 0 1 36 0M4 27a28 28 0 0 1 56 0" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Województwo łódzkie</h3><p>Na terenie województwa łódzkiego doliczamy niewielkie koszty transportu.</p></div>
-      <div><svg viewBox="0 0 64 30" aria-hidden="true"><circle cx="32" cy="27" r="3" fill="currentColor"/><path d="M22 27a10 10 0 0 1 20 0M12 27a20 20 0 0 1 40 0M2 27a30 30 0 0 1 60 0" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Duże zamówienia meblowe</h3><p>Obsługujemy własnym transportem, starając się nie doliczać kosztów albo sprowadzić je do symbolicznej opłaty.</p></div>
+      <div><svg aria-hidden="true"><use href="#luk"/></svg><h3>Łódź i okolice</h3><p>Na terenie Łodzi i bliskiej okolicy staramy się dostarczać wszystko bezpłatnie.</p></div>
+      <div><svg aria-hidden="true"><use href="#luk"/></svg><h3>Województwo łódzkie</h3><p>Na terenie województwa łódzkiego doliczamy niewielkie koszty transportu.</p></div>
+      <div><svg aria-hidden="true"><use href="#luk"/></svg><h3>Duże zamówienia meblowe</h3><p>Obsługujemy własnym transportem, starając się nie doliczać kosztów albo sprowadzić je do symbolicznej opłaty.</p></div>
     </div>
     <p class="dostawa-uwaga">Asortyment jest szeroki i różnorodny, dlatego po złożeniu zamówienia kontaktujemy się i ustalamy końcowy koszt dostawy. Paczki z drukami wysyłamy firmą kurierską.</p>
   </div>
@@ -536,7 +536,7 @@ form .btn{margin-top:20px;width:100%}
   // aktywna pozycja menu wg sekcji
   var linki=[].slice.call(document.querySelectorAll('.menu a, .mmenu a.l'));
   var sekcje=['meble','sale','druki','o-firmie','dostawa','kontakt'].map(function(id){return document.getElementById(id)});
-  function akt(){var y=scrollY+innerHeight*.35,cur='meble';sekcje.forEach(function(s){if(s.offsetTop<=y)cur=s.id});linki.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)})}
+  function akt(){var y=scrollY+innerHeight*.35,cur='';sekcje.forEach(function(s){if(s.offsetTop<=y)cur=s.id});linki.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)})}
   addEventListener('scroll',akt,{passive:true});akt();
 
   // karty: strzalki + przeciaganie mysza
