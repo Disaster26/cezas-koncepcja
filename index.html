@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CEZAS Łódź - meble, tablice i druki dla szkół i przedszkoli</title>
+<meta name="description" content="CEZAS Łódź: meble szkolne i przedszkolne, tablice kredowe, suchościeralne i interaktywne oraz druki szkolne zgodne z obowiązującymi wzorami. Biuro w Łodzi, filia w Piotrkowie Trybunalskim.">
+<meta name="theme-color" content="#3870B0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233870B0'/%3E%3Ccircle cx='16' cy='7' r='2.6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M15 10 9 28M17 10l6 15M11.5 21l9-3' stroke='%23fff' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --niebieski:#3870B0;--niebieski-ciemny:#285A94;--grafit:#505050;--grafit-ciemny:#2C2F33;
+  --pomarancz:#F97F00;--pomarancz-ciemny:#D96D00;--szary:#EEF1F5;--linia:#DCE1E8;--tekst:#1D2126;--tekst2:#4B525B;
+  --g:clamp(16px,4vw,48px);--hh:72px;--max:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--tekst);font:17px/1.6 "Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--niebieski)}
+h1,h2,h3{font-family:Archivo,system-ui,sans-serif;line-height:1.12;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(28px,1.3vw + 16px,46px);font-weight:700}
+h3{font-size:clamp(20px,.5vw + 15px,25px);font-weight:700}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+.sek{padding:clamp(60px,7vw,116px) 0}
+.sek-szara{background:var(--szary)}
+.lead{font-size:clamp(17px,.35vw + 15px,20px);color:var(--tekst2);max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 26px;background:var(--pomarancz);color:#16181B;font:700 17px/1 Archivo,sans-serif;text-decoration:none;border:0;border-radius:3px;cursor:pointer;transition:background .2s}
+.btn:hover{background:#FF9122}
+.btn svg{width:20px;height:20px;flex:none}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;z-index:99;background:#fff;padding:8px}
+
+/* lukowy separator: igla cyrkla + kreska luku */
+.luk{display:block;width:118px;height:30px;color:var(--niebieski);margin-bottom:18px}
+
+/* naglowek */
+.top{position:sticky;top:0;z-index:50;background:#fff;transition:box-shadow .2s}
+.top.scrolled{box-shadow:0 1px 0 var(--linia),0 6px 18px rgba(29,33,38,.06)}
+.top .wrap{height:var(--hh);display:flex;align-items:center;gap:24px}
+.logo{display:flex;align-items:center;flex:none;text-decoration:none}
+.logo svg{height:56px;width:77px}
+.menu{display:flex;gap:4px;margin-left:auto}
+.menu a{color:var(--tekst);text-decoration:none;font:600 16px/1 Archivo,sans-serif;padding:12px 14px;border-radius:3px;position:relative}
+.menu a:hover{color:var(--niebieski)}
+.menu a.on{color:var(--niebieski)}
+.menu a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--niebieski)}
+.top-tel{display:flex;flex-direction:column;line-height:1.15;text-decoration:none;color:var(--tekst);font-weight:700;font-size:17px;white-space:nowrap}
+.top-tel small{font-weight:400;color:var(--tekst2);font-size:13px}
+.top .btn{min-height:46px;padding:0 20px;font-size:16px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border:1px solid var(--linia);background:#fff;border-radius:3px;cursor:pointer;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:22px;height:2px;background:var(--tekst);position:relative;transition:transform .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-7px}.burger span::after{top:7px}
+.burger[aria-expanded=true] span{background:transparent}
+.burger[aria-expanded=true] span::before{transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span::after{transform:translateY(-7px) rotate(-45deg)}
+.mmenu{display:none}
+@media (max-width:1180px){.top-tel{display:none}}
+@media (max-width:960px){
+  :root{--hh:64px}
+  .menu,.top .btn{display:none}
+  .burger{display:flex}
+  .logo svg{height:46px;width:64px}
+  .mmenu{position:fixed;inset:var(--hh) 0 0 0;background:#fff;z-index:49;padding:12px var(--g) 32px;overflow:auto;flex-direction:column}
+  .mmenu.open{display:flex}
+  .mmenu a.l{display:block;padding:16px 0;border-bottom:1px solid var(--linia);color:var(--tekst);text-decoration:none;font:700 22px/1.2 Archivo,sans-serif}
+  .mmenu a.l.on{color:var(--niebieski)}
+  .mmenu .tels{margin-top:24px;display:grid;gap:6px;font-size:18px}
+  .mmenu .tels a{color:var(--tekst);font-weight:700;text-decoration:none}
+  .mmenu .btn{margin-top:22px}
+}
+
+/* pierwszy ekran */
+.hero{background:var(--niebieski);color:#fff;min-height:calc(100svh - var(--hh));display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero-txt{position:relative;z-index:2;flex:none;padding-top:clamp(28px,6vh,84px);padding-bottom:clamp(30px,5vh,64px);display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(33px,2.4vw + 16px,72px);font-weight:800;letter-spacing:-.02em;max-width:17ch}
+.hero .lead{color:#fff;opacity:.94;margin-top:clamp(16px,2.2vh,24px);max-width:56ch}
+.hero-cta{margin-top:clamp(24px,3.4vh,36px);display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.hero-adres{font-size:16px;line-height:1.4;opacity:.92}
+.hero-adres b{font-weight:700}
+.hero-dzialy{display:none}
+.hero-foto{position:relative;flex:1 1 auto;min-height:190px;max-height:620px}
+.hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% 22%;clip-path:ellipse(130% 100% at 50% 100%)}
+.hero-luk{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;color:var(--pomarancz);z-index:1;overflow:visible}
+.hero-igla{position:absolute;left:50%;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--pomarancz);box-shadow:0 0 0 5px var(--niebieski);z-index:2}
+@media (min-width:1000px){
+  .hero-txt{grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:clamp(40px,6vw,120px)}
+  .hero-dzialy{display:block;border-top:1px solid rgba(255,255,255,.35)}
+  .hero-dzialy a{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none}
+  .hero-dzialy b{font:700 clamp(20px,.6vw + 13px,26px)/1.15 Archivo,sans-serif}
+  .hero-dzialy span{grid-column:1;font-size:15px;opacity:.85;line-height:1.35}
+  .hero-dzialy svg{grid-row:1/3;grid-column:2;width:26px;height:26px;transition:transform .2s}
+  .hero-dzialy a:hover svg{transform:translateX(5px)}
+  .hero-foto img{object-position:50% 30%}
+}
+
+/* dzialy */
+.naglowek-sek{display:grid;gap:16px;margin-bottom:clamp(30px,4vw,52px);max-width:820px}
+.dzialy{display:grid;grid-template-columns:1fr;gap:40px}
+@media (min-width:760px){.dzialy{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,48px)}}
+.dzial{display:flex;flex-direction:column}
+.dzial-foto{aspect-ratio:4/3;background:#fff;border:1px solid var(--linia);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.dzial-foto img{width:78%;height:86%;object-fit:contain;transition:transform .4s}
+.dzial:hover .dzial-foto img{transform:scale(1.04)}
+.dzial-foto::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-62%;height:80%;border-top:1.5px solid var(--niebieski);border-radius:50%;opacity:.35}
+.dzial h3{margin-top:22px}
+.dzial p{margin-top:10px;color:var(--tekst2)}
+.dzial .wiecej{margin-top:auto;padding-top:16px;font:700 16px/1.2 Archivo,sans-serif;color:var(--niebieski);text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.dzial .wiecej svg{width:20px;height:20px;transition:transform .2s}
+.dzial .wiecej:hover svg{transform:translateX(4px)}
+
+/* sale - karty przesuwane */
+.sale-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,3.5vw,44px)}
+.sale-head .naglowek-sek{margin-bottom:0}
+.strzalki{display:flex;gap:10px}
+.strzalki button{width:50px;height:50px;border:1.5px solid var(--grafit);background:#fff;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--grafit);transition:background .2s,color .2s}
+.strzalki button:hover{background:var(--grafit);color:#fff}
+.strzalki svg{width:22px;height:22px}
+.tor{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px var(--g) 8px;margin:0 calc(var(--g) * -1);cursor:grab;-webkit-overflow-scrolling:touch}
+.tor::-webkit-scrollbar{display:none}
+.tor.drag{cursor:grabbing;scroll-snap-type:none}
+.tor.drag a{pointer-events:none}
+.karta{flex:0 0 min(78vw,300px);scroll-snap-align:start;background:#fff;text-decoration:none;color:var(--tekst);display:flex;flex-direction:column;border-top:3px solid var(--niebieski);user-select:none}
+.karta-foto{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:18px}
+.karta-foto img{width:100%;height:100%;object-fit:contain;-webkit-user-drag:none}
+.karta-txt{padding:4px 22px 24px}
+.karta h3{font-size:21px}
+.karta p{margin-top:8px;font-size:16px;color:var(--tekst2);line-height:1.45}
+
+/* druki */
+.druki{display:grid;gap:clamp(28px,5vw,80px);grid-template-columns:1fr}
+@media (min-width:980px){.druki{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end}}
+.druki-prod{margin-top:clamp(36px,4.5vw,64px)}
+.lista-druki{list-style:none;padding:0;margin:0;columns:2 230px;column-gap:32px}
+.lista-druki li{break-inside:avoid;padding:11px 0;border-bottom:1px solid var(--linia);font-weight:600}
+.produkty{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+@media (min-width:900px){.produkty{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.produkt{border:1px solid var(--linia);background:#fff;display:flex;flex-direction:column;text-decoration:none;color:var(--tekst)}
+.produkt img{aspect-ratio:4/3;object-fit:contain;padding:16px;width:100%;height:auto}
+.produkt div{padding:0 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.produkt span{font-size:15.5px;line-height:1.35}
+.produkt b{margin-top:auto;font:700 19px/1 Archivo,sans-serif;color:var(--niebieski)}
+.przypis{margin-top:14px;font-size:14px;color:var(--tekst2)}
+
+/* o firmie - ciemna */
+.ciemna{background:var(--grafit-ciemny);color:#E9ECEF}
+.ciemna h2{color:#fff}
+.ciemna .lead{color:#C9CED4}
+.ciemna .luk{color:var(--pomarancz)}
+.firma{display:grid;gap:clamp(36px,5vw,80px);grid-template-columns:1fr;align-items:center}
+@media (min-width:980px){.firma{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.firma-foto{position:relative}
+.firma-foto img{width:100%;height:auto;aspect-ratio:8/3.6;object-fit:cover;object-position:60% 30%;clip-path:ellipse(140% 100% at 50% 100%)}
+.fakty{list-style:none;padding:0;margin:30px 0 0}
+.fakty li{padding:14px 0;border-top:1px solid rgba(255,255,255,.16);display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.fakty li svg{width:22px;height:22px;margin-top:3px;color:var(--pomarancz)}
+.cytat{margin-top:28px;font-size:clamp(18px,.4vw + 15px,21px);line-height:1.5;color:#fff;max-width:56ch}
+
+/* dostawa */
+.dostawa{display:grid;gap:32px;grid-template-columns:1fr}
+@media (min-width:820px){.dostawa{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,64px)}}
+.dostawa svg{width:64px;height:30px;color:var(--niebieski);margin-bottom:14px}
+.dostawa p{margin-top:10px;color:var(--tekst2)}
+.dostawa-uwaga{margin-top:clamp(28px,4vw,44px);padding-top:22px;border-top:1px solid var(--linia);color:var(--tekst2);max-width:70ch}
+
+/* kontakt */
+.kontakt{display:grid;gap:clamp(36px,5vw,72px);grid-template-columns:1fr}
+@media (min-width:1000px){.kontakt{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}}
+.biura{display:grid;gap:28px;grid-template-columns:1fr;margin-top:30px}
+@media (min-width:560px){.biura{grid-template-columns:1fr 1fr}}
+.biuro h3{font-size:21px}
+.biuro p{margin-top:8px;color:var(--tekst2)}
+.biuro ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
+.biuro li{display:flex;gap:10px;align-items:center}
+.biuro li svg{width:18px;height:18px;color:var(--niebieski);flex:none}
+.biuro a{color:var(--tekst);font-weight:700;text-decoration:none}
+.biuro a:hover{color:var(--niebieski)}
+.mapa{margin-top:34px;border:1px solid var(--linia);height:320px;background:var(--szary)}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+form{background:var(--szary);padding:clamp(22px,3vw,40px)}
+form h3{margin-bottom:6px}
+form > p{color:var(--tekst2);margin-bottom:18px}
+label{display:block;font-weight:700;font-size:15px;margin:14px 0 6px}
+input,select,textarea{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid #C5CDD7;border-radius:3px;background:#fff;color:var(--tekst)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--niebieski);outline-offset:1px;border-color:var(--niebieski)}
+textarea{min-height:130px;resize:vertical}
+.pola{display:grid;gap:0 16px;grid-template-columns:1fr}
+@media (min-width:560px){.pola{grid-template-columns:1fr 1fr}}
+.zgoda{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14.5px;color:var(--tekst2);margin-top:16px}
+.zgoda input{width:20px;height:20px;flex:none;margin-top:2px}
+form .btn{margin-top:20px;width:100%}
+.info-form{margin-top:14px;font-size:15px;color:var(--niebieski-ciemny);font-weight:600;min-height:1.4em}
+
+/* stopka */
+.stopka{background:var(--grafit-ciemny);color:#BFC5CC;padding:clamp(44px,5vw,72px) 0 28px;font-size:15.5px}
+.stopka-siatka{display:grid;gap:28px 24px;grid-template-columns:1fr 1fr}
+@media (min-width:900px){.stopka-siatka{grid-template-columns:1.4fr 1fr 1fr 1.2fr}}
+.stopka .logo svg{height:60px;width:83px}
+.stopka h4{margin:0 0 12px;color:#fff;font:700 16px/1.2 Archivo,sans-serif}
+.stopka ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.stopka a{color:#BFC5CC;text-decoration:none}
+.stopka a:hover{color:#fff}
+.stopka-logo{grid-column:1/-1}
+@media (min-width:900px){.stopka-logo{grid-column:auto}}
+.stopka-logo p{margin-top:14px;max-width:34ch}
+.stopka-dol{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center;font-size:14.5px}
+
+/* cookies */
+.cookies{position:fixed;z-index:60;left:12px;right:12px;bottom:12px;max-width:520px;background:#fff;color:var(--tekst);border:1px solid var(--linia);box-shadow:0 14px 40px rgba(29,33,38,.18);padding:18px 18px 16px;font-size:15px;line-height:1.45;display:none}
+.cookies.show{display:block}
+.cookies p{margin-bottom:12px}
+.cookies .przyciski{display:flex;gap:10px;flex-wrap:wrap}
+.cookies button{min-height:44px;padding:0 18px;font:700 15px/1 Archivo,sans-serif;border-radius:3px;cursor:pointer;border:1.5px solid var(--grafit);background:#fff;color:var(--tekst)}
+.cookies button.ok{background:var(--niebieski);border-color:var(--niebieski);color:#fff}
+@media (min-width:700px){.cookies{left:24px;bottom:24px}}
+</style>
+<!-- znak Wylinki (oficjalny fragment) -->
+<style>
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- logo CEZAS: litera A jako cyrkiel -->
+    <symbol id="logo" viewBox="0 0 138 100">
+      <text x="0" y="66" font-family="'Source Sans 3',Arial,sans-serif" font-size="52" font-weight="400" letter-spacing="-1" style="fill:var(--logo-n,#3870B0)">CEZ</text>
+      <g fill="none" style="stroke:var(--logo-g,#505050)" stroke-linecap="round">
+        <circle cx="96" cy="10" r="4.6" stroke-width="3"/>
+        <path d="M96 1.5v3.8" stroke-width="2.6"/>
+        <path d="M94.2 14.5 83.5 96" stroke-width="3.4"/>
+        <path d="M97.8 14.5 107.5 78" stroke-width="3.4"/>
+        <path d="M107.6 78l2 16" stroke-width="1.6"/>
+        <path d="M88.5 60.5 106.2 54" stroke-width="2.6"/>
+      </g>
+      <text x="109" y="66" font-family="'Source Sans 3',Arial,sans-serif" font-size="52" font-weight="400" style="fill:var(--logo-n,#3870B0)">S</text>
+      <text x="2" y="92" font-family="'Source Sans 3',Arial,sans-serif" font-size="21" font-weight="400" letter-spacing=".5" style="fill:var(--logo-g,#505050)">ŁÓDŹ</text>
+    </symbol>
+    <!-- znak luku cyrkla: igla + luk -->
+    <symbol id="luk" viewBox="0 0 118 30"><path d="M6 26 A 80 80 0 0 1 112 26" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="6" cy="26" r="3.6" fill="currentColor"/><circle cx="112" cy="26" r="3.6" fill="var(--pomarancz)"/></symbol>
+    <symbol id="strz" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="strz-l" viewBox="0 0 24 24"><path d="M20 12H5M10.5 6.5 5 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="tel" viewBox="0 0 20 20"><path d="M5 2.5h3l1.3 4-2 1.3a10 10 0 0 0 4.9 4.9l1.3-2 4 1.3v3c0 1-.8 1.8-1.8 1.8C9 16.8 3.2 11 3.2 4.3c0-1 .8-1.8 1.8-1.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="mail" viewBox="0 0 20 20"><rect x="2.5" y="4.5" width="15" height="11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3 5.5 7 5.5 7-5.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="cyrkiel" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 6 6 21M13 6l5 15M8.3 14.5l7.4-2.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="CEZAS Łódź - strona główna"><svg role="img" aria-label="CEZAS Łódź"><use href="#logo"/></svg></a>
+    <nav class="menu" aria-label="Menu główne">
+      <a href="#meble" class="on">Meble</a>
+      <a href="#sale">Sale i pracownie</a>
+      <a href="#druki">Druki</a>
+      <a href="#o-firmie">O firmie</a>
+      <a href="#dostawa">Dostawa</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="top-tel" href="tel:+48426815866"><small>Biuro w Łodzi</small>42 681 58 66</a>
+    <a class="btn" href="#kontakt">Zapytaj o ofertę</a>
+    <button class="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Otwórz menu"><span></span></button>
+  </div>
+</header>
+<nav class="mmenu" id="mmenu" aria-label="Menu mobilne">
+  <a class="l on" href="#meble">Meble, tablice, druki</a>
+  <a class="l" href="#sale">Sale i pracownie</a>
+  <a class="l" href="#druki">Druki szkolne</a>
+  <a class="l" href="#o-firmie">O firmie</a>
+  <a class="l" href="#dostawa">Dostawa</a>
+  <a class="l" href="#kontakt">Kontakt</a>
+  <div class="tels">
+    <a href="tel:+48426815866">42 681 58 66</a>
+    <a href="tel:+48604627799">604 627 799</a>
+    <a href="mailto:cezas@cezas.com">cezas@cezas.com</a>
+  </div>
+  <a class="btn" href="#kontakt">Zapytaj o ofertę</a>
+</nav>
+
+<main id="tresc">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-txt">
+    <div>
+      <h1 id="h1">Meble, tablice i druki dla szkół i przedszkoli</h1>
+      <p class="lead">Czuwamy nad zmianami przepisów, żeby druki były zawsze zgodne z obowiązującymi wzorami, a meble certyfikowane i bezpieczne. Doradzimy, wycenimy i dowieziemy do placówki.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#kontakt">Zapytaj o ofertę<svg aria-hidden="true"><use href="#strz"/></svg></a>
+        <p class="hero-adres"><b>Łódź, ul. Rembielińskiego 37</b><br>filia w Piotrkowie Trybunalskim</p>
+      </div>
+    </div>
+    <nav class="hero-dzialy" aria-label="Działy">
+      <a href="#meble"><b>Meble szkolne</b><span>krzesła, stoły, szafy, szafki skrytkowe, meble przedszkolne</span><svg aria-hidden="true"><use href="#strz"/></svg></a>
+      <a href="#meble"><b>Tablice</b><span>kredowe, suchościeralne, interaktywne, akademickie</span><svg aria-hidden="true"><use href="#strz"/></svg></a>
+      <a href="#druki"><b>Druki szkolne</b><span>gilosze, dzienniki, rejestry, legitymacje</span><svg aria-hidden="true"><use href="#strz"/></svg></a>
+    </nav>
+  </div>
+  <div class="hero-foto">
+    <svg class="hero-luk" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M-80 100 A 130 100 0 0 1 180 100" fill="none" stroke="currentColor" stroke-width="4" vector-effect="non-scaling-stroke"/></svg>
+    <span class="hero-igla" aria-hidden="true"></span>
+    <img src="img/szafki-uczniowie.webp" width="1920" height="360" alt="Uczniowie biegną korytarzem szkoły obok kolorowych szafek skrytkowych" fetchpriority="high">
+  </div>
+</section>
+
+<section class="sek" id="meble" aria-labelledby="h-dzialy">
+  <div class="wrap">
+    <div class="naglowek-sek">
+      <svg class="luk" aria-hidden="true"><use href="#luk"/></svg>
+      <h2 id="h-dzialy">Wszystko do szkoły od jednego dostawcy</h2>
+      <p class="lead">Wyposażenie klas i pracowni, tablice oraz pełna dokumentacja szkolna. Zamówienie można złożyć w sklepie albo przez zapytanie, a my potwierdzamy dostępność i koszt dostawy.</p>
+    </div>
+    <div class="dzialy">
+      <article class="dzial">
+        <div class="dzial-foto"><img src="img/krzeslo-tola.webp" width="624" height="624" alt="Krzesło uczniowskie Tola na czerwonym stelażu" loading="lazy"></div>
+        <h3>Meble szkolne i przedszkolne</h3>
+        <p>Krzesła i stoły uczniowskie, także z regulowaną wysokością, szafy i regały, szafki skrytkowe, biurka nauczycielskie, meble do świetlic, stołówek, auli i sal komputerowych.</p>
+        <a class="wiecej" href="#sale">Zobacz wyposażenie sal<svg aria-hidden="true"><use href="#strz"/></svg></a>
+      </article>
+      <article class="dzial">
+        <div class="dzial-foto"><img src="img/tablica-akademicka.webp" width="640" height="640" alt="Tablica akademicka suwana z polem kredowym i białym" loading="lazy"></div>
+        <h3>Tablice szkolne i biurowe</h3>
+        <p>Tablice zielone kredowe, białe suchościeralne, akademickie suwane góra-dół, mobilne i flipcharty, tablice informacyjne oraz interaktywne tablice i monitory.</p>
+        <a class="wiecej" href="#sale">Tablice w salach lekcyjnych<svg aria-hidden="true"><use href="#strz"/></svg></a>
+      </article>
+      <article class="dzial">
+        <div class="dzial-foto"><img src="img/gilosz-sp.webp" width="640" height="640" alt="Gilosz świadectwa ukończenia szkoły podstawowej, wzór" loading="lazy"></div>
+        <h3>Druki szkolne i akcydensowe</h3>
+        <p>Gilosze do druku świadectw, druki dla szkół podstawowych i średnich, dzienniki, rejestry i księgi, druki biblioteczne, e-legitymacje i hologramy.</p>
+        <a class="wiecej" href="#druki">Przejdź do druków<svg aria-hidden="true"><use href="#strz"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sek sek-szara" id="sale" aria-labelledby="h-sale">
+  <div class="wrap">
+    <div class="sale-head">
+      <div class="naglowek-sek">
+        <svg class="luk" aria-hidden="true"><use href="#luk"/></svg>
+        <h2 id="h-sale">Wyposażenie sal i pracowni</h2>
+        <p class="lead">Wybierz pomieszczenie, które urządzasz. Przesuń karty palcem albo myszą.</p>
+      </div>
+      <div class="strzalki">
+        <button type="button" data-kier="-1" aria-label="Poprzednie"><svg aria-hidden="true"><use href="#strz-l"/></svg></button>
+        <button type="button" data-kier="1" aria-label="Następne"><svg aria-hidden="true"><use href="#strz"/></svg></button>
+      </div>
+    </div>
+    <div class="tor" id="tor">
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/stolik-trapez.webp" width="599" height="599" alt="Stolik uczniowski trapez z regulacją wysokości" loading="lazy"></div><div class="karta-txt"><h3>Sala lekcyjna</h3><p>Stoły uczniowskie, krzesła, biurko nauczyciela, meble pomocnicze do klas.</p></div></a>
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/stolik-bambino.webp" width="640" height="640" alt="Trójkątny stolik przedszkolny Bambino" loading="lazy"></div><div class="karta-txt"><h3>Przedszkole</h3><p>Meble przedszkolne, stoliki dla młodszych dzieci z regulacją wysokości.</p></div></a>
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/szafa-skrytkowa.webp" width="630" height="630" alt="Metalowa szafa skrytkowa z kolorowymi drzwiami" loading="lazy"></div><div class="karta-txt"><h3>Hol, korytarz, szatnia</h3><p>Szafki skrytkowe dla uczniów, szafy i regały metalowe.</p></div></a>
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/krzeslo-puchatek.webp" width="463" height="463" alt="Krzesło szkolne Puchatek" loading="lazy"></div><div class="karta-txt"><h3>Świetlica i stołówka</h3><p>Krzesła i stoły do jadalni, meble do świetlicy szkolnej.</p></div></a>
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/pufy-kolo.webp" width="640" height="640" alt="Kolorowy zestaw puf Tobo ułożony w koło" loading="lazy"></div><div class="karta-txt"><h3>Strefa relaksu</h3><p>Pufy i sofy do korytarzy, bibliotek i świetlic.</p></div></a>
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/wozek-laptopy.webp" width="555" height="555" alt="Wózek do ładowania laptopów" loading="lazy"></div><div class="karta-txt"><h3>Sala komputerowa</h3><p>Meble do sal komputerowych, szafy i wózki do ładowania laptopów i tabletów.</p></div></a>
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/tablica-interaktywna.webp" width="640" height="640" alt="Tablica interaktywna esprit DT" loading="lazy"></div><div class="karta-txt"><h3>Tablice interaktywne</h3><p>Interaktywne tablice i monitory z akcesoriami.</p></div></a>
+      <a class="karta" href="#kontakt"><div class="karta-foto"><img src="img/regal-kasia.webp" width="640" height="640" alt="Regał szkolny Kasia z szafkami" loading="lazy"></div><div class="karta-txt"><h3>Biblioteka i pokój nauczycielski</h3><p>Szafy i regały Kasia, regały z szafkami, wzornik płyt meblowych.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="druki" aria-labelledby="h-druki">
+  <div class="wrap">
+    <div class="druki">
+      <div>
+        <svg class="luk" aria-hidden="true"><use href="#luk"/></svg>
+        <h2 id="h-druki">Druki zgodne z obowiązującym stanem prawnym</h2>
+        <p class="lead" style="margin-top:16px">Śledzimy zmiany przepisów w zakresie druków szkolnych, więc w ofercie są tylko aktualne wzory. Pomożemy dobrać dokumentację dla szkoły podstawowej, średniej, przedszkola i biblioteki.</p>
+      </div>
+      <ul class="lista-druki">
+        <li>Gilosze do druku świadectw</li>
+        <li>Świadectwa, indeksy, legitymacje</li>
+        <li>Druki dla szkoły podstawowej</li>
+        <li>Dzienniki</li>
+        <li>Rejestry, księgi, ewidencja</li>
+        <li>Organizacja szkół</li>
+        <li>Druki biblioteczne</li>
+        <li>E-legitymacje i hologramy</li>
+        <li>Dyplomy i listy gratulacyjne</li>
+        <li>Druki dla firm szkoleniowych</li>
+      </ul>
+    </div>
+    <div class="druki-prod">
+      <div class="produkty">
+        <a class="produkt" href="#kontakt"><img src="img/gilosz-sp.webp" width="640" height="640" alt="Gilosz ukończenia szkoły podstawowej niebieski A4" loading="lazy"><div><span>Gilosz ukończenia szkoły podstawowej, niebieski A4</span><b>3,06 zł</b></div></a>
+        <a class="produkt" href="#kontakt"><img src="img/dziennik-pedagoga.webp" width="611" height="611" alt="Dziennik pedagoga specjalnego" loading="lazy"><div><span>Dziennik pedagoga specjalnego MEiN-PEDS</span><b>36,00 zł</b></div></a>
+        <a class="produkt" href="#kontakt"><img src="img/dziennik-przedszkola.webp" width="574" height="574" alt="Dziennik zajęć przedszkola" loading="lazy"><div><span>Dziennik zajęć przedszkola I/1, zapis dzienny obecności</span><b>35,00 zł</b></div></a>
+        <a class="produkt" href="#kontakt"><img src="img/list-gratulacyjny.webp" width="523" height="523" alt="List gratulacyjny B228" loading="lazy"><div><span>List gratulacyjny B228</span><b>2,50 zł</b></div></a>
+      </div>
+      <p class="przypis">Ceny ze sklepu cezas.com, stan na 13.11.2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sek ciemna" id="o-firmie" aria-labelledby="h-firma">
+  <div class="wrap firma">
+    <div>
+      <svg class="luk" aria-hidden="true"><use href="#luk"/></svg>
+      <h2 id="h-firma">Rodzinna firma z Łodzi</h2>
+      <p class="cytat">PZE CEZAS to firma z trzydziestoletnim doświadczeniem, zbudowana na podwalinach pierwszego Cezasu z lat 60. ubiegłego wieku. Znamy wymagania i specyfikę pracy z placówkami oświatowymi.</p>
+      <ul class="fakty">
+        <li><svg aria-hidden="true"><use href="#cyrkiel"/></svg><span>Pilnujemy, żeby druki były w pełni zgodne z obowiązującym stanem prawnym, a meble certyfikowane i bezpieczne.</span></li>
+        <li><svg aria-hidden="true"><use href="#cyrkiel"/></svg><span>Jesteśmy członkiem Zarządu Izby Gospodarczej, wyróżnianym m.in. przez Ministerstwo Gospodarki.</span></li>
+        <li><svg aria-hidden="true"><use href="#cyrkiel"/></svg><span>Biuro w Łodzi i filia w Piotrkowie Trybunalskim. Rzetelnie doradzimy i wybierzemy najlepsze rozwiązanie dla placówki.</span></li>
+      </ul>
+    </div>
+    <div class="firma-foto">
+      <img src="img/uczniowie-korytarz.webp" width="960" height="360" alt="Uczniowie na szkolnym korytarzu przy szafkach" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sek sek-szara" id="dostawa" aria-labelledby="h-dostawa">
+  <div class="wrap">
+    <div class="naglowek-sek">
+      <svg class="luk" aria-hidden="true"><use href="#luk"/></svg>
+      <h2 id="h-dostawa">Dostawa do placówki</h2>
+    </div>
+    <div class="dostawa">
+      <div><svg viewBox="0 0 64 30" aria-hidden="true"><circle cx="32" cy="27" r="3" fill="currentColor"/><path d="M14 27a18 18 0 0 1 36 0" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Łódź i okolice</h3><p>Na terenie Łodzi i bliskiej okolicy staramy się dostarczać wszystko bezpłatnie.</p></div>
+      <div><svg viewBox="0 0 64 30" aria-hidden="true"><circle cx="32" cy="27" r="3" fill="currentColor"/><path d="M14 27a18 18 0 0 1 36 0M4 27a28 28 0 0 1 56 0" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Województwo łódzkie</h3><p>Na terenie województwa łódzkiego doliczamy niewielkie koszty transportu.</p></div>
+      <div><svg viewBox="0 0 64 30" aria-hidden="true"><circle cx="32" cy="27" r="3" fill="currentColor"/><path d="M22 27a10 10 0 0 1 20 0M12 27a20 20 0 0 1 40 0M2 27a30 30 0 0 1 60 0" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Duże zamówienia meblowe</h3><p>Obsługujemy własnym transportem, starając się nie doliczać kosztów albo sprowadzić je do symbolicznej opłaty.</p></div>
+    </div>
+    <p class="dostawa-uwaga">Asortyment jest szeroki i różnorodny, dlatego po złożeniu zamówienia kontaktujemy się i ustalamy końcowy koszt dostawy. Paczki z drukami wysyłamy firmą kurierską.</p>
+  </div>
+</section>
+
+<section class="sek" id="kontakt" aria-labelledby="h-kontakt">
+  <div class="wrap kontakt">
+    <div>
+      <svg class="luk" aria-hidden="true"><use href="#luk"/></svg>
+      <h2 id="h-kontakt">Kontakt</h2>
+      <p class="lead" style="margin-top:16px">Biuro Obsługi Klienta odpowie na pytania o produkty, dostępność i zamówienia.</p>
+      <div class="biura">
+        <div class="biuro">
+          <h3>CEZAS Łódź</h3>
+          <p>ul. Rembielińskiego 37<br>93-575 Łódź</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#tel"/></svg><a href="tel:+48426815866">42 681 58 66</a></li>
+            <li><svg aria-hidden="true"><use href="#tel"/></svg><a href="tel:+48604627799">604 627 799</a></li>
+            <li><svg aria-hidden="true"><use href="#tel"/></svg><a href="tel:+48695502250">695 502 250</a></li>
+            <li><svg aria-hidden="true"><use href="#mail"/></svg><a href="mailto:cezas@cezas.com">cezas@cezas.com</a></li>
+          </ul>
+        </div>
+        <div class="biuro">
+          <h3>Filia Piotrków Trybunalski</h3>
+          <p>ul. Dąbrowskiego 4<br>97-300 Piotrków Trybunalski</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#tel"/></svg><a href="tel:+48446473704">44 647 37 04</a></li>
+            <li><svg aria-hidden="true"><use href="#tel"/></svg><a href="tel:+48695507550">695 507 550</a></li>
+            <li><svg aria-hidden="true"><use href="#mail"/></svg><a href="mailto:piotrkow@cezas.com">piotrkow@cezas.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mapa">
+        <iframe title="Mapa dojazdu: CEZAS, ul. Rembielińskiego 37, Łódź" src="https://www.google.com/maps?q=Rembieli%C5%84skiego%2037%2C%2093-575%20%C5%81%C3%B3d%C5%BA&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <form id="formularz" novalidate>
+      <h3>Zapytanie o ofertę</h3>
+      <p>Opisz, czego potrzebuje placówka. Odpowiemy z wyceną i terminem dostawy.</p>
+      <div class="pola">
+        <div><label for="f-placowka">Placówka</label><input id="f-placowka" name="placowka" autocomplete="organization" placeholder="np. Szkoła Podstawowa nr 5"></div>
+        <div><label for="f-dzial">Czego dotyczy</label><select id="f-dzial" name="dzial"><option>Meble</option><option>Tablice</option><option>Druki</option><option>Inne</option></select></div>
+        <div><label for="f-mail">E-mail</label><input id="f-mail" type="email" name="email" autocomplete="email"></div>
+        <div><label for="f-tel">Telefon</label><input id="f-tel" type="tel" name="tel" autocomplete="tel"></div>
+      </div>
+      <label for="f-wiad">Wiadomość</label>
+      <textarea id="f-wiad" name="wiadomosc" placeholder="np. 30 stolików i 60 krzeseł nr 6 do dwóch sal"></textarea>
+      <label class="zgoda"><input type="checkbox" name="zgoda"> <span>Zgadzam się na przetwarzanie danych w celu odpowiedzi na zapytanie. Szczegóły w <a href="polityka.html">polityce prywatności</a>.</span></label>
+      <button class="btn" type="submit">Wyślij zapytanie<svg aria-hidden="true"><use href="#strz"/></svg></button>
+      <p class="info-form" id="info-form" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="stopka">
+  <div class="wrap">
+    <div class="stopka-siatka">
+      <div class="stopka-logo">
+        <a class="logo" href="#" aria-label="CEZAS Łódź" style="--logo-n:#fff;--logo-g:#AEB5BD"><svg role="img" aria-label="CEZAS Łódź"><use href="#logo"/></svg></a>
+        <p>Meble, tablice i druki dla szkół i przedszkoli. Łódź i Piotrków Trybunalski.</p>
+      </div>
+      <div>
+        <h4>Oferta</h4>
+        <ul><li><a href="#meble">Meble szkolne</a></li><li><a href="#meble">Tablice</a></li><li><a href="#druki">Druki szkolne</a></li><li><a href="#sale">Sale i pracownie</a></li></ul>
+      </div>
+      <div>
+        <h4>Firma</h4>
+        <ul><li><a href="#o-firmie">O firmie</a></li><li><a href="#dostawa">Dostawa</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="polityka.html">Polityka prywatności</a></li></ul>
+      </div>
+      <div>
+        <h4>Biuro w Łodzi</h4>
+        <ul><li>ul. Rembielińskiego 37</li><li><a href="tel:+48426815866">42 681 58 66</a></li><li><a href="mailto:cezas@cezas.com">cezas@cezas.com</a></li></ul>
+      </div>
+    </div>
+    <div class="stopka-dol">
+      <span>© <span id="rok">2026</span> CEZAS Łódź</span>
+      <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=cezas.com&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+    </div>
+  </div>
+</footer>
+
+<div class="cookies" id="cookies" role="dialog" aria-label="Pliki cookies">
+  <p>Strona używa niezbędnych plików cookies. Mapa Google w sekcji Kontakt może zapisywać własne pliki cookies. Szczegóły w <a href="polityka.html">polityce prywatności</a>.</p>
+  <div class="przyciski"><button class="ok" type="button" data-zgoda="all">Akceptuję</button><button type="button" data-zgoda="min">Tylko niezbędne</button></div>
+</div>
+
+<script>
+(function(){
+  var top=document.getElementById('top');
+  function sc(){top.classList.toggle('scrolled',scrollY>8)}
+  addEventListener('scroll',sc,{passive:true});sc();
+  document.getElementById('rok').textContent=new Date().getFullYear();
+
+  // menu mobilne
+  var b=document.querySelector('.burger'),m=document.getElementById('mmenu');
+  b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!o);m.classList.toggle('open',!o);document.body.style.overflow=o?'':'hidden'});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');m.classList.remove('open');document.body.style.overflow=''})});
+
+  // aktywna pozycja menu wg sekcji
+  var linki=[].slice.call(document.querySelectorAll('.menu a, .mmenu a.l'));
+  var sekcje=['meble','sale','druki','o-firmie','dostawa','kontakt'].map(function(id){return document.getElementById(id)});
+  function akt(){var y=scrollY+innerHeight*.35,cur='meble';sekcje.forEach(function(s){if(s.offsetTop<=y)cur=s.id});linki.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)})}
+  addEventListener('scroll',akt,{passive:true});akt();
+
+  // karty: strzalki + przeciaganie mysza
+  var tor=document.getElementById('tor');
+  document.querySelectorAll('.strzalki button').forEach(function(btn){btn.addEventListener('click',function(){var k=tor.querySelector('.karta');tor.scrollBy({left:(k.offsetWidth+20)*+btn.dataset.kier,behavior:'smooth'})})});
+  var down=false,sx=0,sl=0,moved=false;
+  tor.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=tor.scrollLeft});
+  addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4){moved=true;tor.classList.add('drag')}tor.scrollLeft=sl-dx});
+  addEventListener('pointerup',function(){if(!down)return;down=false;setTimeout(function(){tor.classList.remove('drag')},0)});
+  tor.addEventListener('click',function(e){if(moved){e.preventDefault();moved=false}},true);
+  tor.addEventListener('dragstart',function(e){e.preventDefault()});
+
+  // formularz pokazowy
+  document.getElementById('formularz').addEventListener('submit',function(e){e.preventDefault();document.getElementById('info-form').textContent='To podgląd strony: formularz nie wysyła wiadomości. Na gotowej stronie zapytanie trafi na cezas@cezas.com.'});
+
+  // baner cookies
+  var c=document.getElementById('cookies'),zap=null;
+  try{zap=localStorage.getItem('cezas-cookies')}catch(e){}
+  if(!zap)c.classList.add('show');
+  c.querySelectorAll('button').forEach(function(x){x.addEventListener('click',function(){try{localStorage.setItem('cezas-cookies',x.dataset.zgoda)}catch(e){}c.classList.remove('show')})});
+})();
+</script>
+</body>
+</html>
